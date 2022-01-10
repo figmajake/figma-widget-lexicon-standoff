@@ -1,0 +1,10 @@
+{
+  "name": "Lexicon Standoff",
+  "id": "jake-albaugh-lexicon-standoff",
+  "api": "1.0.0",
+  "editorType": ["figjam"],
+  "permissions": ["activeusers", "currentuser"],
+  "containsWidget": true,
+  "main": "dist/code.js",
+  "widgetApi": "1.0.0"
+}
