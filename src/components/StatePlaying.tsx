@@ -1,8 +1,6 @@
 import { GameResponse, GameTopics } from "../code";
-import { Avatar } from "../components/Avatar";
-import { Button } from "../components/Button";
 import { theme } from "../theme";
-import { Topic } from "../components/Topic";
+import { Avatar, Button, Topic } from "./";
 import { sortedPlayersByResponseTime } from "../utils";
 
 const { widget } = figma;

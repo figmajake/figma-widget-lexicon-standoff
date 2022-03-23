@@ -1,6 +1,5 @@
 import { activeImposterCount } from "../code";
-import { Avatar } from "../components/Avatar";
-import { Button } from "../components/Button";
+import { Avatar, Button } from "./";
 import { theme } from "../theme";
 
 const { widget } = figma;

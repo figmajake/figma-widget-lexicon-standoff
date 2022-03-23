@@ -876,7 +876,7 @@
     ]
   ];
 
-  // widget-src/theme.ts
+  // src/theme.ts
   var theme = {
     block: {
       sm: 20,
@@ -900,7 +900,7 @@
     }
   };
 
-  // widget-src/components/Avatar.tsx
+  // src/components/Avatar.tsx
   var { widget } = figma;
   var { Image } = widget;
   var Avatar = ({ size = "md", key, onClick, round, src }) => /* @__PURE__ */ figma.widget.h(Image, {
@@ -912,7 +912,7 @@
     width: theme.block[size]
   });
 
-  // widget-src/components/Button.tsx
+  // src/components/Button.tsx
   var { widget: widget2 } = figma;
   var { AutoLayout, Text } = widget2;
   var Button = ({
@@ -939,17 +939,7 @@
     }, children));
   };
 
-  // widget-src/components/Topic.tsx
-  var { widget: widget3 } = figma;
-  var { Text: Text2 } = widget3;
-  var Topic = ({ emphasize = false, topic }) => /* @__PURE__ */ figma.widget.h(Text2, {
-    fill: theme.color.text,
-    fontSize: theme.text.lg,
-    fontWeight: emphasize ? "normal" : "extra-bold",
-    italic: emphasize
-  }, "\u201C", topic, "\u201D");
-
-  // widget-src/utils.ts
+  // src/utils.ts
   var topicDisplays = {
     agent: [
       ["a", "b"],
@@ -1007,9 +997,9 @@
     });
   };
 
-  // widget-src/states/StatePlaying.tsx
-  var { widget: widget4 } = figma;
-  var { AutoLayout: AutoLayout2, Text: Text3 } = widget4;
+  // src/components/StatePlaying.tsx
+  var { widget: widget3 } = figma;
+  var { AutoLayout: AutoLayout2, Text: Text2 } = widget3;
   var StatePlaying = ({
     onResponse,
     onVote,
@@ -1040,7 +1030,7 @@
         key: sessionId,
         src: photoUrl,
         round: true
-      }), /* @__PURE__ */ figma.widget.h(Text3, {
+      }), /* @__PURE__ */ figma.widget.h(Text2, {
         fill: theme.color.accent,
         fontSize: theme.text.sm,
         italic: true
@@ -1054,7 +1044,7 @@
     }, /* @__PURE__ */ figma.widget.h(Button, {
       onClick: onResponse,
       width: "fill-parent"
-    }, "Show me Secrets"), /* @__PURE__ */ figma.widget.h(Text3, {
+    }, "Show me Secrets"), /* @__PURE__ */ figma.widget.h(Text2, {
       fontSize: theme.text.sm,
       fill: theme.color.text,
       italic: true
@@ -1082,9 +1072,9 @@
     })) : null, voting ? renderVoting() : renderSubmissions());
   };
 
-  // widget-src/states/StateResults.tsx
-  var { widget: widget5 } = figma;
-  var { AutoLayout: AutoLayout3, Text: Text4 } = widget5;
+  // src/components/StateResults.tsx
+  var { widget: widget4 } = figma;
+  var { AutoLayout: AutoLayout3, Text: Text3 } = widget4;
   var StateResults = ({
     kills,
     onDone,
@@ -1136,19 +1126,19 @@
       }, /* @__PURE__ */ figma.widget.h(Avatar, {
         round: true,
         src: player.photoUrl
-      }), /* @__PURE__ */ figma.widget.h(Text4, {
+      }), /* @__PURE__ */ figma.widget.h(Text3, {
         fontSize: theme.text.lg,
         fill: theme.color.text,
         fontWeight: "extra-bold"
       }, scores.get(key)), /* @__PURE__ */ figma.widget.h(AutoLayout3, {
         direction: "vertical",
         verticalAlignItems: "center"
-      }, /* @__PURE__ */ figma.widget.h(Text4, {
+      }, /* @__PURE__ */ figma.widget.h(Text3, {
         fontSize: theme.text.sm,
         fill: theme.color.text,
         fontWeight: imposter ? "normal" : "extra-bold",
         italic: imposter
-      }, role), /* @__PURE__ */ figma.widget.h(Text4, {
+      }, role), /* @__PURE__ */ figma.widget.h(Text3, {
         fontSize: theme.text.sm,
         fill: theme.color.text,
         fontWeight: killed ? "extra-bold" : "normal"
@@ -1168,9 +1158,9 @@
     })));
   };
 
-  // widget-src/states/StateStart.tsx
-  var { widget: widget6 } = figma;
-  var { AutoLayout: AutoLayout4, Text: Text5 } = widget6;
+  // src/components/StateStart.tsx
+  var { widget: widget5 } = figma;
+  var { AutoLayout: AutoLayout4, Text: Text4 } = widget5;
   var StateStart = ({ onBoot, onJoin, onStart, players }) => {
     const minPlayers = 1;
     const playersNeeded = minPlayers - players.size;
@@ -1182,7 +1172,7 @@
       horizontalAlignItems: "center",
       spacing: theme.spacing.md,
       verticalAlignItems: "center"
-    }, /* @__PURE__ */ figma.widget.h(Text5, {
+    }, /* @__PURE__ */ figma.widget.h(Text4, {
       fill: theme.color.text,
       fontSize: theme.text.lg,
       fontWeight: "extra-bold"
@@ -1204,18 +1194,58 @@
       onClick: onJoin
     }, "Join"), ready ? /* @__PURE__ */ figma.widget.h(Button, {
       onClick: onStart
-    }, "Start Game") : null, /* @__PURE__ */ figma.widget.h(Text5, {
+    }, "Start Game") : null, /* @__PURE__ */ figma.widget.h(Text4, {
       fontSize: theme.text.sm,
       fill: theme.color.text,
       italic: true
     }, ready ? `there will be ${imposterCount} imposter${imposterCount === 1 ? "" : "s"}` : `waiting for ${playersNeeded}...`)));
   };
 
-  // widget-src/code.tsx
-  var { widget: widget7, activeUsers, currentUser } = figma;
-  var { AutoLayout: AutoLayout5, useEffect, useSyncedMap, useSyncedState } = widget7;
-  var activeImposterCount = (players) => Math.max(1, Math.round(1 / 3 * players.size));
-  var uiStyle = ({ block, color, text, spacing }) => {
+  // src/components/Topic.tsx
+  var { widget: widget6 } = figma;
+  var { Text: Text5 } = widget6;
+  var Topic = ({ emphasize = false, topic }) => /* @__PURE__ */ figma.widget.h(Text5, {
+    fill: theme.color.text,
+    fontSize: theme.text.lg,
+    fontWeight: emphasize ? "normal" : "extra-bold",
+    italic: emphasize
+  }, "\u201C", topic, "\u201D");
+
+  // src/ui.ts
+  function ui(topics, constraint, roles, currentUser2) {
+    const sessionId = userKey(currentUser2);
+    const role = roles.get(sessionId) || "agent";
+    const shownTopics = randomOrderTopics(role, topics);
+    return `
+${uiStyle(theme)}
+<section>
+  <main>
+    <p><em>you are an <strong>${role.toUpperCase()}</strong>!</em></p>
+    <h1>${shownTopics.map((a) => `\u201C${a}\u201D`).join("<br>")}</h1>
+    <p class="mb"><em>${constraint == null ? void 0 : constraint.toLowerCase()}</em></p>
+  </main>
+  <footer>
+    <input id="input" type="text" required><br>
+    <button id="button">Submit</button>
+  </footer>
+</section>
+<script>
+  const input = document.getElementById("input");
+  const button = document.getElementById("button");
+  button.addEventListener("click", () => {
+    if (!input.value.trim()) {
+      return;
+    }
+    const pluginMessage = { value: input.value, sessionId: "${sessionId}", store: "responses" };
+    parent.postMessage({ pluginMessage }, '*');
+    input.remove();
+    button.remove();
+  });
+  input.focus();
+<\/script>
+`;
+  }
+  function uiStyle({ block, color, text, spacing }) {
     const pxToRem = (px) => `${px / 16}rem`;
     return `
   <style>
@@ -1276,40 +1306,12 @@
   }
   </style>
 `;
-  };
-  function loadResponseIframe(topics, constraint, roles) {
-    const sessionId = userKey(currentUser);
-    const role = roles.get(sessionId) || "agent";
-    const shownTopics = randomOrderTopics(role, topics);
-    figma.showUI(`
-    ${uiStyle(theme)}
-    <section>
-      <main>
-        <p><em>you are an <strong>${role.toUpperCase()}</strong>!</em></p>
-        <h1>${shownTopics.map((a) => `\u201C${a}\u201D`).join("<br>")}</h1>
-        <p class="mb"><em>${constraint == null ? void 0 : constraint.toLowerCase()}</em></p>
-      </main>
-      <footer>
-        <input id="input" type="text" required><br>
-        <button id="button">Submit</button>
-      </footer>
-    </section>
-    <script>
-      const input = document.getElementById("input");
-      const button = document.getElementById("button");
-      button.addEventListener("click", () => {
-        if (!input.value.trim()) {
-          return;
-        }
-        const pluginMessage = { value: input.value, sessionId: "${sessionId}", store: "responses" };
-        parent.postMessage({ pluginMessage }, '*');
-        input.remove();
-        button.remove();
-      });
-      input.focus();
-    <\/script>
-    `, { height: 300, width: 400 });
   }
+
+  // src/code.tsx
+  var { widget: widget7, activeUsers, currentUser } = figma;
+  var { AutoLayout: AutoLayout5, useEffect, useSyncedMap, useSyncedState } = widget7;
+  var activeImposterCount = (players) => Math.max(1, Math.round(1 / 3 * players.size));
   function Lexicon() {
     const killsMap = useSyncedMap("kills");
     const playersMap = useSyncedMap("players");
@@ -1423,7 +1425,10 @@
       onStart: handleStart,
       players: playersMap
     }) : null, state === "playing" && topics ? /* @__PURE__ */ figma.widget.h(StatePlaying, {
-      onResponse: () => new Promise(() => loadResponseIframe(topics, constraint, rolesMap)),
+      onResponse: () => new Promise(() => figma.showUI(ui(topics, constraint, rolesMap, currentUser), {
+        height: 300,
+        width: 400
+      })),
       onVote: handleVote,
       players: playersMap,
       responses: responsesMap,

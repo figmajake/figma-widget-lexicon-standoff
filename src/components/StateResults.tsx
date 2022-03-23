@@ -1,8 +1,6 @@
 import { GameRole, GameTopics } from "../code";
-import { Avatar } from "../components/Avatar";
-import { Button } from "../components/Button";
+import { Avatar, Button, Topic } from "./";
 import { theme } from "../theme";
-import { Topic } from "../components/Topic";
 import { sortedPlayersByScore, userKey } from "../utils";
 
 const { widget } = figma;
